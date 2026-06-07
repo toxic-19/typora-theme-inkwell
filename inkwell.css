@@ -1,0 +1,1079 @@
+:root {
+    /* ===== Color System ===== */
+    --bg-color: #ffffff;
+    --text-color: #3d4852;
+    --heading-color: #1a2332;
+    --heading-secondary: #2c3e50;
+    --link-color: #3b82c4;
+    --link-hover: #2563a0;
+    --border-color: #e2e8f0;
+    --border-light: #eef2f7;
+    --code-bg: #f6f8fb;
+    --code-text: #c7254e;
+    --blockquote-bg: #f8fafc;
+    --blockquote-border: #94a3b8;
+    --blockquote-text: #5a6872;
+    --table-header-bg: #f1f5f9;
+    --table-stripe-bg: #f8fafc;
+    --table-border: #e2e8f0;
+    --mark-bg: #fef3cd;
+    --selection-bg: #d4e4f7;
+    --meta-color: #8896a4;
+    --hr-color: #d1d9e0;
+    --shadow-light: rgba(0, 0, 0, 0.04);
+
+    /* ===== Typography ===== */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --font-size-base: 15px;
+    --line-height: 1.75;
+}
+
+/* ===== Base Layout ===== */
+html {
+    font-size: var(--font-size-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: var(--line-height);
+}
+
+#write {
+    max-width: 860px;
+    padding: 2em 2.5em;
+    margin: 0 auto;
+}
+
+/* ===== Headings ===== */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 600;
+    line-height: 1.35;
+    margin-top: 1.8em;
+    margin-bottom: 0.65em;
+    position: relative;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 1.2em;
+    padding-bottom: 0.35em;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--heading-color);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.55em;
+    font-weight: 650;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--heading-secondary);
+}
+
+h3 {
+    font-size: 1.3em;
+    color: var(--heading-secondary);
+}
+
+h4 {
+    font-size: 1.12em;
+    color: var(--heading-secondary);
+}
+
+h5 {
+    font-size: 1em;
+    color: #5a6872;
+}
+
+h6 {
+    font-size: 0.92em;
+    color: #6b7a88;
+    font-weight: 500;
+}
+
+/* Heading hover effect */
+h1:hover::after,
+h2:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--link-color);
+    border-radius: 1px;
+}
+
+/* ===== Paragraphs & Text ===== */
+p {
+    margin: 0 0 1em 0;
+    line-height: var(--line-height);
+}
+
+strong {
+    font-weight: 600;
+    color: #2c3644;
+}
+
+em {
+    font-style: italic;
+}
+
+del {
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+mark {
+    background-color: var(--mark-bg);
+    padding: 0.15em 0.35em;
+    border-radius: 3px;
+    color: #7c6200;
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    border-bottom-color: var(--link-hover);
+}
+
+/* ===== Lists ===== */
+ul, ol {
+    margin: 0 0 1em 0;
+    padding-left: 1.8em;
+}
+
+li {
+    margin-bottom: 0.35em;
+    line-height: 1.7;
+}
+
+li > p {
+    margin-bottom: 0.4em;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Custom bullet style */
+ul > li::marker {
+    color: #94a3b8;
+}
+
+ol > li::marker {
+    color: var(--heading-secondary);
+    font-weight: 500;
+}
+
+/* Task list */
+.task-list-item {
+    list-style: none;
+    margin-left: -1.5em;
+    padding-left: 0;
+}
+
+.task-list-item input[type="checkbox"] {
+    margin-right: 0.5em;
+    vertical-align: middle;
+    accent-color: var(--link-color);
+}
+
+/* ===== Blockquotes ===== */
+blockquote {
+    margin: 1em 0;
+    padding: 0.8em 1.2em;
+    border-left: 4px solid var(--blockquote-border);
+    background-color: var(--blockquote-bg);
+    border-radius: 0 6px 6px 0;
+    color: var(--blockquote-text);
+}
+
+blockquote p {
+    margin-bottom: 0.5em;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote blockquote {
+    margin-top: 0.6em;
+    border-left-color: #cbd5e1;
+}
+
+/* ===== Code ===== */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.2em 0.45em;
+    border-radius: 4px;
+    font-weight: 400;
+}
+
+pre {
+    margin: 1.2em 0;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+pre code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background-color: var(--code-bg);
+    color: #3d4852;
+    padding: 1.2em 1.4em;
+    line-height: 1.65;
+    border-radius: 8px;
+    display: block;
+    overflow-x: auto;
+}
+
+/* md-fences for Typora */
+.md-fences {
+    background-color: var(--code-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 0.5em 0;
+    margin: 1.2em 0;
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+.md-fences .CodeMirror-wrap {
+    border-radius: 8px;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+/* Fix horizontal line artifacts between code lines */
+.md-fences .CodeMirror pre.CodeMirror-line,
+.md-fences .CodeMirror pre.CodeMirror-line-like {
+    background: transparent;
+}
+
+.CodeMirror-sizer {
+    border-right: 0;
+}
+
+.md-fences::before {
+    content: '';
+    display: block;
+    padding: 8px 12px;
+    background: var(--table-header-bg);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 8px 8px 0 0;
+}
+
+/* Code block language label */
+.md-fences[lang]::before {
+    content: attr(lang);
+    display: block;
+    padding: 6px 14px;
+    background: var(--table-header-bg);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 8px 8px 0 0;
+    color: var(--meta-color);
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Syntax Highlighting ===== */
+
+/*
+ * Color Palette (light-bg optimized)
+ * ----------------------------------
+ * Keywords:     #7c3aed  (violet)
+ * Strings:      #15803d  (green-700)
+ * Comments:     #94a3b8  (slate-400, italic)
+ * Numbers:      #c2410c  (orange-700)
+ * Functions:    #2563eb  (blue-600)
+ * Operators:    #0d9488  (teal-600)
+ * Types/Classes:#0891b2  (cyan-600)
+ * Decorators:   #d97706  (amber-600)
+ * Tags (HTML):  #be185d  (pink-700)
+ * Attributes:   #7c3aed  (violet)
+ * Punctuation:  #64748b  (slate-500)
+ * Regex:        #c2410c  (orange)
+ * Variables:    #b45309  (amber-800)
+ * Base text:    #3d4852
+ */
+
+/* --- CodeMirror tokens (Typora native) --- */
+
+/* Keywords: def, if, else, import, class, return, for, while, try, except, const, let, var, function ... */
+.cm-keyword { color: #7c3aed; font-weight: 500; }
+
+/* Strings: "hello", 'world', `template` */
+.cm-string,
+.cm-string-2 { color: #15803d; }
+
+/* Comments: # comment, // comment, /* comment */
+.cm-comment { color: #94a3b8; font-style: italic; }
+
+/* Numbers: 42, 3.14, 0xff, 1e10 */
+.cm-number { color: #c2410c; }
+
+/* Operators: +, -, *, =, ==, !=, =>, &&, || */
+.cm-operator { color: #0d9488; }
+
+/* Function calls */
+.cm-def,
+.cm-meta { color: #2563eb; }
+
+/* Variables & properties */
+.cm-variable { color: #3d4852; }
+.cm-variable-2 { color: #b45309; }
+.cm-variable-3 { color: #0891b2; }
+.cm-qualifier { color: #0891b2; }
+
+/* Types & built-ins: int, str, list, dict, None, True, False, console, document ... */
+.cm-type { color: #0891b2; }
+.cm-builtin { color: #0891b2; font-weight: 500; }
+.cm-atom { color: #c2410c; font-weight: 500; }  /* booleans, null, undefined */
+
+/* Tags (HTML/XML) */
+.cm-tag { color: #be185d; }
+.cm-attribute { color: #7c3aed; }
+.cm-bracket { color: #64748b; }
+
+/* Punctuation */
+.cm-punctuation,
+.cm-delimiter { color: #64748b; }
+
+/* Header (Markdown in code) */
+.cm-header { color: #1a2332; font-weight: 600; }
+
+/* Link */
+.cm-link { color: #3b82c4; text-decoration: none; }
+.cm-url { color: #94a3b8; }
+
+/* Error */
+.cm-error { color: #dc2626; background-color: #fef2f2; border-radius: 2px; }
+
+/* Matching bracket highlight */
+.cm-matchingbracket {
+    color: #7c3aed !important;
+    background-color: #ede9fe;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+/* Active line - disabled (no highlight) */
+.CodeMirror-activeline-background,
+.CodeMirror-activeline-gutter {
+    background-color: transparent !important;
+}
+
+/* Line numbers */
+.CodeMirror-linenumber {
+    color: #c4cdd5;
+}
+
+/* Cursor */
+.CodeMirror-cursor {
+    border-left-color: #3b82c4 !important;
+}
+
+/* Selection in code editor */
+.CodeMirror-selected {
+    background-color: #d4e4f7 !important;
+}
+
+/* --- Generic highlighter tokens (Prism / highlight.js / Pygments fallback) --- */
+
+.token.keyword,
+.hljs-keyword,
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt { color: #7c3aed; font-weight: 500; }
+
+.token.string,
+.token.char,
+.hljs-string,
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss { color: #15803d; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.hljs-comment,
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .ch,
+.highlight .cp,
+.highlight .cpf,
+.highlight .cs { color: #94a3b8; font-style: italic; }
+
+.token.number,
+.token.boolean,
+.hljs-number,
+.hljs-literal,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il,
+.highlight .kc { color: #c2410c; }
+
+.token.function,
+.hljs-function,
+.hljs-title,
+.highlight .nf,
+.highlight .fm { color: #2563eb; }
+
+.token.operator,
+.hljs-operator,
+.highlight .o,
+.highlight .ow { color: #0d9488; }
+
+.token.class-name,
+.token.builtin,
+.hljs-class,
+.hljs-built_in,
+.highlight .nc,
+.highlight .ni,
+.highlight .nn { color: #0891b2; font-weight: 500; }
+
+.token.decorator,
+.token.annotation,
+.highlight .nd { color: #d97706; }
+
+.token.tag,
+.hljs-tag,
+.highlight .nt,
+.highlight .na { color: #be185d; }
+
+.token.attr-name,
+.hljs-attr,
+.highlight .na { color: #7c3aed; }
+
+.token.attr-value,
+.hljs-attr-value { color: #15803d; }
+
+.token.punctuation,
+.hljs-punctuation,
+.highlight .p { color: #64748b; }
+
+.token.regex,
+.hljs-regexp { color: #c2410c; }
+
+.token.variable,
+.hljs-variable,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi { color: #b45309; }
+
+.token.property,
+.hljs-property { color: #3d4852; }
+
+.token.parameter,
+.hljs-params,
+.highlight .bp { color: #3d4852; }
+
+.token.selector,
+.hljs-selector-tag,
+.hljs-selector-class,
+.hljs-selector-id { color: #be185d; font-weight: 500; }
+
+.token.important,
+.hljs-emphasis { color: #7c3aed; font-weight: 600; }
+
+.token.inserted,
+.hljs-addition { color: #15803d; background-color: #ecfdf5; border-radius: 2px; }
+
+.token.deleted,
+.hljs-deletion { color: #dc2626; background-color: #fef2f2; border-radius: 2px; }
+
+.token.changed,
+.hljs-modified { color: #d97706; background-color: #fffbeb; border-radius: 2px; }
+
+/* Language-specific overrides */
+
+/* Python: self, cls */
+.cm-variable.cm-special { color: #0891b2; font-style: italic; }
+
+/* JSON: keys */
+.cm-property { color: #2563eb; }
+
+/* CSS: selectors and values */
+.cm-css-property { color: #0d9488; }
+.cm-css-value { color: #c2410c; }
+.cm-css-selector { color: #be185d; }
+
+/* Shell / Bash */
+.cm-shell-keyword { color: #7c3aed; }
+
+/* SQL */
+.cm-sql-keyword { color: #7c3aed; text-transform: uppercase; }
+
+/* Diff */
+.cm-diff-added { color: #15803d; background-color: #ecfdf5; }
+.cm-diff-removed { color: #dc2626; background-color: #fef2f2; }
+
+/* ===== Tables ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px var(--shadow-light);
+    font-size: 0.93em;
+}
+
+thead {
+    background-color: var(--table-header-bg);
+}
+
+th {
+    padding: 0.75em 1em;
+    text-align: left;
+    font-weight: 600;
+    color: var(--heading-secondary);
+    border-bottom: 2px solid var(--table-border);
+    white-space: nowrap;
+}
+
+td {
+    padding: 0.65em 1em;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-stripe-bg);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #eef4fb;
+}
+
+/* ===== Horizontal Rules ===== */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--hr-color), transparent);
+    margin: 2.5em 0;
+}
+
+/* ===== Images ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Image caption */
+img + em,
+figure figcaption {
+    display: block;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--meta-color);
+    margin-top: 0.5em;
+}
+
+/* ===== Footnotes ===== */
+.footnotes-area {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.88em;
+    color: var(--meta-color);
+}
+
+.footnotes-area ol {
+    padding-left: 1.5em;
+}
+
+sup.md-footnote {
+    color: var(--link-color);
+    font-size: 0.78em;
+}
+
+/* ===== Table of Contents ===== */
+.md-toc {
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    background-color: var(--blockquote-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+.md-toc-content {
+    padding-left: 0.5em;
+}
+
+.md-toc-item {
+    margin: 0.3em 0;
+}
+
+.md-toc-link {
+    color: var(--heading-secondary);
+    font-weight: 500;
+    border-bottom: none;
+}
+
+.md-toc-link:hover {
+    color: var(--link-color);
+}
+
+/* ===== Math (KaTeX) ===== */
+.md-math-block {
+    margin: 1.2em 0;
+    text-align: center;
+    font-size: 1.05em;
+}
+
+/* ===== Definition Lists ===== */
+dt {
+    font-weight: 600;
+    color: var(--heading-secondary);
+    margin-top: 0.8em;
+}
+
+dd {
+    margin-left: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--text-color);
+}
+
+/* ===== Selection ===== */
+::selection {
+    background-color: var(--selection-bg);
+    color: inherit;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4cdd5;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aab4;
+}
+
+/* ===== Print ===== */
+@media print {
+    html {
+        font-size: 12pt;
+    }
+
+    #write {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+
+    pre, blockquote, table {
+        page-break-inside: avoid;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: var(--link-color);
+    }
+
+    a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #8896a4;
+    }
+}
+
+/* ===== Typora-Specific: Source Code Mode ===== */
+#typora-source {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+/* ===== Typora-Specific: Outline / Sidebar ===== */
+.outline-item {
+    font-size: 0.88em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.outline-item:hover {
+    background-color: var(--table-stripe-bg);
+}
+
+.outline-item-active {
+    background-color: #e8f0fe;
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+/* ===== Typora-Specific: Diagrams (Mermaid etc.) ===== */
+.md-diagram {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+/* ===== Transition / Animations ===== */
+h1, h2, h3, h4, h5, h6,
+a, blockquote, table {
+    transition: all 0.2s ease;
+}
+
+/* Exclude code/pre from transition to avoid line artifacts in CodeMirror */
+code, pre, .md-fences,
+.CodeMirror, .CodeMirror-line,
+.CodeMirror-code, .CodeMirror-sizer {
+    transition: none !important;
+}
+
+/* ===== Focus Mode ===== */
+/*
+ * Focus mode dims all blocks except the one currently being edited,
+ * helping you concentrate on the current paragraph/heading/list.
+ */
+#write.on-focus-mode .md-end-block:not(.md-focus),
+#write.on-focus-mode .md-end-block:not(.md-focus) .md-line {
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+}
+
+#write.on-focus-mode .md-end-block.md-focus,
+#write.on-focus-mode .md-end-block.md-focus .md-line {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* Siblings of focused block also stay slightly more visible */
+#write.on-focus-mode .md-end-block.md-focus ~ .md-end-block {
+    opacity: 0.25;
+}
+
+/* Headings in focus mode stay slightly more visible than body text */
+#write.on-focus-mode h1:not(.md-focus),
+#write.on-focus-mode h2:not(.md-focus),
+#write.on-focus-mode h3:not(.md-focus) {
+    opacity: 0.45;
+}
+
+/* ===== Typewriter Mode ===== */
+/*
+ * Typewriter mode keeps the current line near the vertical center
+ * of the editor and dims non-active lines in the code editor.
+ */
+#write.on-typewriter-mode .md-end-block:not(.md-focus) {
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+#write.on-typewriter-mode .md-end-block.md-focus {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+
+/* CodeMirror lines in typewriter mode - keep normal opacity */
+.CodeMirror.cm-s-typora-default .CodeMirror-line {
+    opacity: 1;
+}
+
+/* ===== Keyboard Tag (<kbd>) ===== */
+kbd {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+    line-height: 1;
+    color: var(--heading-secondary);
+    background-color: #f8fafc;
+    border: 1px solid #d1d9e0;
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 0.15em 0.45em;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+kbd + kbd {
+    margin-left: 0.15em;
+}
+
+/* Key combo: kbd > kbd or kbd + kbd */
+kbd > kbd {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: none;
+    font-size: 1em;
+}
+
+/* ===== YAML Front Matter ===== */
+/*
+ * Typora renders YAML front matter as: #write pre.md-meta-block
+ * The content inside uses CodeMirror with YAML syntax tokens.
+ */
+#write pre.md-meta-block {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1em 1.4em;
+    margin-bottom: 1.8em;
+    margin-top: 0 !important;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: #5a6872;
+    line-height: 1.7;
+    box-shadow: 0 1px 3px var(--shadow-light);
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* YAML key (field name): title, date, categories, etc. */
+#write pre.md-meta-block .cm-meta-key,
+#write pre.md-meta-block .cm-tag,
+#write pre.md-meta-block .cm-atom {
+    color: #7c3aed;
+    font-weight: 500;
+}
+
+/* YAML value (field content) */
+#write pre.md-meta-block .cm-meta-value,
+#write pre.md-meta-block .cm-string {
+    color: #15803d;
+}
+
+/* YAML delimiter --- */
+#write pre.md-meta-block .cm-meta-delimiter,
+#write pre.md-meta-block .cm-hr {
+    color: #c4cdd5;
+}
+
+/* YAML list items (- Agent) */
+#write pre.md-meta-block .cm-variable {
+    color: #3d4852;
+}
+
+/* YAML number values */
+#write pre.md-meta-block .cm-number {
+    color: #c2410c;
+}
+
+/* YAML boolean (true/false) */
+#write pre.md-meta-block .cm-keyword {
+    color: #7c3aed;
+    font-weight: 500;
+}
+
+/* YAML comment (# comment) */
+#write pre.md-meta-block .cm-comment {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Prevent code block box-shadow/border from stacking on front matter */
+#write pre.md-meta-block {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Front matter focus state (editing) */
+#write pre.md-meta-block.md-focus {
+    border-color: #c4d4e8;
+}
+
+/* Image metadata (not YAML, but uses .md-meta) */
+.md-image > .md-meta {
+    color: var(--meta-color);
+    background: transparent;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-size: 0.9em;
+}
+
+/* ===== Search Highlight ===== */
+.md-search-hit {
+    background-color: #fef3cd;
+    color: #7c6200;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+.md-search-select,
+.md-search-hit.md-search-select {
+    background-color: #f59e0b;
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Search highlight in code blocks (CodeMirror) */
+.cm-searching {
+    background-color: #fef3cd !important;
+    color: #7c6200 !important;
+    border-radius: 2px;
+    padding: 1px 0;
+}
+
+.cm-searching.cm-search-select {
+    background-color: #f59e0b !important;
+    color: #fff !important;
+}
+
+/* ===== Code Block: Line Numbers ===== */
+.md-fences .CodeMirror-linenumber,
+pre .CodeMirror-linenumber {
+    color: #c4cdd5;
+    min-width: 2.5em;
+    padding-right: 0.8em;
+    text-align: right;
+    font-size: 0.82em;
+    user-select: none;
+}
+
+/* Line number gutter background */
+.CodeMirror-gutters {
+    background-color: transparent;
+    border-right: 1px solid var(--border-light);
+}
+
+.CodeMirror-linenumber {
+    color: #c4cdd5;
+}
+
+/* ===== Code Block: Active Line Highlight ===== */
+/* Disabled - no active line highlight */
+.CodeMirror-activeline-background {
+    background-color: transparent !important;
+}
+
+.CodeMirror-activeline-gutter {
+    background-color: transparent !important;
+}
+
+/* ===== Code Block: Copy Button ===== */
+.md-fences-advanced .md-fences-copy-btn,
+.code-tooltip .btn {
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: #64748b;
+    font-size: 0.78em;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.md-fences-advanced .md-fences-copy-btn:hover,
+.code-tooltip .btn:hover {
+    background-color: #e2e8f0;
+    color: #3d4852;
+}
+
+/* ===== Code Block: Tooltip / Language Selector ===== */
+.code-tooltip {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.code-tooltip input {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--text-color);
+    background: #fff;
+    outline: none;
+}
+
+.code-tooltip input:focus {
+    border-color: var(--link-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 196, 0.15);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    #write {
+        padding: 1.2em 1em;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.35em;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    th, td {
+        padding: 0.5em 0.7em;
+    }
+}
