@@ -10,11 +10,15 @@ Inkwell is built around one idea: the theme should disappear so your content can
 
 ### Inkwell (Light)
 
-![image-20260607下午21516486](https://gitee.com/zhizhu_wlz/picgo/raw/master/setup/image-20260607下午21516486.png)
+![image-20260607下午21516486](./screenshots/Light01.png)
+
+![image-20260607下午21516486](./screenshots/Light02.png)
 
 ### Inkwell Dark
 
-![image-20260607下午21421511](https://gitee.com/zhizhu_wlz/picgo/raw/master/setup/image-20260607下午21421511.png)
+![image-20260607下午21421511](./screenshots/Night01.png)
+
+![image-20260607下午21421511](./screenshots/Night02.png)
 
 ## Features
 
